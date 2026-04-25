@@ -1,11 +1,40 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- SEO Meta -->
     <title>TaxMatch Pro - 智能税务合规匹配系统</title>
+    <meta name="description" content="TaxMatch Pro 是一款智能税务合规匹配系统，提供七维企业画像、L1-L4分级政策匹配、合规报告生成等一站式税务服务。" />
+    <meta name="keywords" content="税务合规,政策匹配,企业画像,税务筹划,智能税务,TaxMatch" />
+    <meta name="author" content="TaxMatch Team" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="TaxMatch Pro - 智能税务合规匹配系统" />
+    <meta property="og:description" content="七维企业画像 + L1-L4分级匹配 + 专业合规报告" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Favicon (使用内联 SVG 作为 fallback) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>" />
+
+    <!-- 阻止 FOUC：先设置默认主题色，JS 加载后覆盖 -->
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem('taxmatch-theme') || 'system';
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (theme === 'dark' || (theme === 'system' && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <!-- Preload 关键资源 -->
+    <link rel="modulepreload" href="/src/main.tsx" />
   </head>
-  <body>
+  <body class="antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
